@@ -6,14 +6,11 @@ import numpy as np
 import matplotlib.pyplot as plt
 import pydeck as pdk
 import streamlit as st
-import os
 from streamlit import session_state
 
 #initalization
-PATH="C:\\Users\\Katsa\\Downloads"
 DATA="airports.csv"
-FILE=os.path.join(PATH,DATA)
-R_File=pd.read_csv(FILE,index_col="id")
+R_File=pd.read_csv(DATA,index_col="id")
 R_File=R_File.sort_values(['ident','name']) # [DA2] Sorted data based by indentity ID and then name
 R_File.dropna(inplace=True) #[DA1] Cleaning the Data
 R_File=R_File.drop(columns=["local_code"]) #[DA7]
